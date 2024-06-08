@@ -1,0 +1,196 @@
+<ion-content [fullscreen]="true">
+  <ion-loading isOpen="isLoading" message="Loading..." [duration]="1000" spinner="circles"></ion-loading>
+  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-header>
+    <ion-toolbar class="ion-align-items-center">
+      <div class="flex-nav">
+        <img src="/assets/images/logo.png" alt="" id="logo">
+        <h1 class="nav-title">XenoFit</h1>
+      </div>
+      <ion-buttons slot="end">
+        <ion-button (click)="goToProfile()">
+          <ion-icon slot="icon-only" name="person-circle"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <!-- <ion-button (click)="goToProfile()"  color="light">
+        <ion-icon name="person-circle" slot="icon-only" color="light"></ion-icon>
+      </ion-button> -->
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="goal-setting">
+    <ion-datetime presentation="date" [highlightedDates]="highlightedDates"></ion-datetime>
+    <div class="goal-type-selection" *ngIf="workoutPlansLength <= 0">
+      <h1>Goal for the week 🎯</h1>
+      <div>
+        <p>Number of workouts for the week</p>
+        <ion-range min="0" max="7" dualKnobs="false" pin="true" snaps="true" step="1" ticks="true" value="1"
+          color="primary" (ionChange)="timesPerWeek($event)" required>
+        </ion-range>
+
+        <div class="text-center days warning">{{selectedValue}}</div>
+
+        <div class="text-center">Number of Days</div>
+
+      </div>
+
+      <div>
+        <p>Total calories to be burned</p>
+        <ion-range min="0" max="2450" dualKnobs="false" pin="true" snaps="true" step="1" value="100" color="primary"
+          (ionChange)="burnCalories($event)" required>
+        </ion-range>
+
+        <div class="text-center days warning">{{burnCaloriesValue}}</div>
+
+        <div class="text-center">Calories</div>
+
+      </div>
+      <!-- For calories burned goal -->
+      <!-- <p>Calories to be burned</p> -->
+
+      <ion-button (click)="setGoal()" expand="block" shape="round">
+        Set Goal
+      </ion-button>
+    </div>
+    <ion-list class="goal-week" *ngIf="workoutPlansLength > 0">
+      <div class="goal-header">
+        <h1 class="goal-title">Your goal for the week 🎯 {{weekGoalStr}}</h1>
+        <ion-button color="danger" (click)="deleteWorkoutPlan()">
+          <ion-icon name="close" slot="icon-only"></ion-icon>
+        </ion-button>
+      </div>
+      <ion-item *ngFor="let plan of workoutPlans">
+        <ion-label class="text-capitalize">
+          {{ plan.goalName }}
+          <div class="flex">
+            <p class="goal-text-days">{{ plan.numberOfDays }}</p><span class="light-color"> days of workout</span>
+          </div>
+          <div class="flex">
+            <p class="goal-text">{{ plan.totalCaloriesBurned }}</p><span class="light-color"> total calories to be
+              burned</span>
+          </div>
+        </ion-label>
+      </ion-item>
+
+    </ion-list>
+    <!-- For target certain physique -->
+    <form (ngSubmit)="calculate()" #nutritionForm="ngForm" class="health-calculator"
+      *ngIf="healthCalculatorListLength <= 0">
+      <ion-item class="first-item ">
+        <h1>Health Calculator ❤️‍🩹</h1>
+      </ion-item>
+      <ion-item>
+        <ion-label color="light">Weight (kg)</ion-label>
+        <ion-input class="ion-padding" type="number" [(ngModel)]="userWeight" name="weight" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="light" class="input-label">Height (cm)</ion-label>
+        <ion-input class="ion-padding" type="number" [(ngModel)]="userHeight" name="height" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="light" class="input-label">Age</ion-label>
+        <ion-input class="ion-padding" type="number" [(ngModel)]="age" name="age" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="light" class="input-label">Gender</ion-label>
+        <ion-select [(ngModel)]="gender" name="gender" required placeholder="Choose...">
+          <ion-select-option value="Male">Male</ion-select-option>
+          <ion-select-option value="Female">Female</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item class="last-item">
+        <ion-label color="light">Activity Level</ion-label>
+        <ion-select [(ngModel)]="activityLevel" name="activityLevel" required color="light" placeholder="Choose...">
+          <ion-select-option value="sedentary">Sedentary</ion-select-option>
+          <ion-select-option value="light">Light</ion-select-option>
+          <ion-select-option value="moderate">Moderate</ion-select-option>
+          <ion-select-option value="active">Active</ion-select-option>
+          <ion-select-option value="veryActive">Very Active</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-button class="ion-margin-vertical" type="submit" expand="full" color="primary"
+        shape="round">Calculate</ion-button>
+    </form>
+
+
+    <div *ngIf="healthCalculatorListLength > 0">
+      <ion-list *ngFor="let calculator of healthCalculatorList" class="health-calculator">
+        <ion-item>
+          <div class="header">
+            <h1 class="title">Nutrients needed to stay healthy 🥕</h1>
+            <ion-button class="calculate-button" (click)="recalculate()" color="primary" shape="round">
+              <ion-icon name="calculator-outline" slot="icon-only"></ion-icon>
+            </ion-button>
+          </div>
+        </ion-item>
+        <ion-item>
+          <ion-label color="light">Calories: <span class="warning">{{ calculator.calories }} kcal/day</span></ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label color="light">Protein: <span class="warning">{{ calculator.protein }} g/day</span></ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label color="light">Fat: <span class="warning">{{ calculator.fat }} g/day</span></ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label color="light">Carbohydrates: <span class="warning">{{ calculator.carbohydrates }} g/day</span></ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+
+
+    <ion-list class="target-weight" *ngIf="targetWeightLength <= 0">
+      <h1 class="pad-left">Set Your Target Weight 🏋️</h1>
+      <ion-item>
+        <ion-label color="light">Current weight (kg)</ion-label>
+        <ion-input class="ion-padding" [(ngModel)]="weightCurrentIn" name="currentWeight" type="number" placeholder=""></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="light">Target weight (kg)</ion-label>
+        <ion-input class="ion-padding" [(ngModel)]="weightTargetIn" name="targetWeight" type="number" placeholder=""></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="light">Expected weight loss/gain per day (kg)</ion-label>
+        <ion-input class="ion-padding" [(ngModel)]="gainLossPerDay" name="expectedWeight" type="number" placeholder=""></ion-input>
+      </ion-item>
+
+
+    </ion-list>
+    <ion-button *ngIf="targetWeightLength <= 0" class="ion-margin-vertical" (click)="calculateDaysToReachTargetWeight()"
+      expand="block" shape="round">
+      Calculate
+    </ion-button>
+    <ion-list class="target-weight" *ngIf="targetWeightLength > 0">
+
+      <ion-item>
+        <div class="header">
+          <h1 class="title">Target Weight </h1>
+
+          <ion-button class="calculate-button" (click)="calculateTargetWeightAgain()" color="primary" shape="round">
+            <ion-icon name="calculator-outline" slot="icon-only"></ion-icon>
+          </ion-button>
+        </div>
+
+      </ion-item>
+      <ion-item>
+
+        <ion-label *ngFor="let target of targetWeight" color="light">Your estimated days of completing your target weight from <span class="warning">{{target.weightCurrentIn}} to {{target.weightTargetIn}} kg</span> is <span class="warning">{{target.daysToTargetWeight}} days</span><br><br>Starting Date: <span class="warning">{{target.startingDateStr}}</span><br><br>End Date: <span class="warning">{{target.endDateStr}}</span></ion-label>
+      </ion-item>
+    </ion-list>
+
+    <!-- <h1>Set Your Target Weight</h1>
+    <ion-label>Enter your current weight in kilograms (kg)</ion-label>
+    <ion-input class="ion-padding" [(ngModel)]="weightCurrentIn" type="number" placeholder=""></ion-input>
+    <ion-label>Enter your target weight in kilograms (kg)</ion-label>
+    <ion-input class="ion-padding" [(ngModel)]="weightTargetIn" type="number" placeholder=""></ion-input>
+    <ion-label>Enter expected weight loss/gain per day in kilograms (kg)</ion-label>
+    <ion-input class="ion-padding" [(ngModel)]="gainLossPerDay" type="number" placeholder=""></ion-input>
+    <ion-button (click)="calculateDaysToReachTargetWeight()" expand="block" shape="round">
+      Set Goal
+    </ion-button>
+    <h1>{{weightGoalStr}}</h1> -->
+  </div>
+</ion-content>

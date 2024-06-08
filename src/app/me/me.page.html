@@ -1,0 +1,76 @@
+<!-- <ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>me</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content>
+  <ion-loading isOpen="isLoading" message="Loading..." [duration]="1000" spinner="circles"></ion-loading>
+  <ion-header>
+    <ion-refresher slot="fixed" (ionRefresh)="refreshProfile($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+    <ion-toolbar class="ion-align-items-center">
+      <div class="flex-nav">
+        <img src="/assets/images/logo.png" alt="" id="logo">
+        <h1 class="nav-title">XenoFit</h1>
+      </div>
+      <ion-buttons slot="end">
+        <ion-button (click)="back()">
+          <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  
+
+  <div class="ion-padding">
+    <ion-list>
+      <ion-item>
+        <ion-label color="light">Name: </ion-label>
+        <ion-input [(ngModel)]="userName" placeholder="Enter your name" (ionChange)="checkChanges()" color="warning"></ion-input>
+        <ion-icon name="person-circle" slot="end" color="light"></ion-icon>
+      </ion-item>
+      <ion-item>
+        <ion-label color="light">Age: </ion-label>
+        <ion-input color="warning" [(ngModel)]="userAge" placeholder="Enter your age" (ionChange)="checkChanges()"></ion-input>
+        <ion-icon name="calendar" slot="end" color="light"></ion-icon>
+      </ion-item>
+      <ion-item>
+        <ion-label color="light">Gender: </ion-label>
+        <ion-input color="warning" [(ngModel)]="userGender" placeholder="Enter your gender" (ionChange)="checkChanges()"></ion-input>
+        <ion-icon name="man" slot="end" color="light"></ion-icon>
+      </ion-item>
+      <ion-item>
+        <ion-label color="light">Weight: </ion-label>
+        <ion-input color="warning" [(ngModel)]="userWeight" placeholder="Enter your weight" (ionChange)="checkChanges()"></ion-input>
+        <ion-icon name="fitness" slot="end" color="light"></ion-icon>
+      </ion-item>
+      <ion-item>
+        <ion-label color="light">Height: </ion-label>
+        <ion-input color="warning" [(ngModel)]="userHeight" placeholder="Enter your height" (ionChange)="checkChanges()"></ion-input>
+        <ion-icon name="body" slot="end" color="light"></ion-icon>
+      </ion-item>
+      <ion-item>
+        <ion-label color="light">BMI: {{userBMI}}</ion-label>
+        <!-- <ion-input [(ngModel)]="userBMI" placeholder="Enter your BMI" (ionChange)="checkChanges()"></ion-input> -->
+        <ion-icon name="analytics" slot="end" color="light"></ion-icon>
+      </ion-item>
+      <ion-item>
+        <ion-label color="light">Classification: {{userBMIClassification}}</ion-label>
+        <!-- <ion-input [(ngModel)]="userBMI" placeholder="Enter your BMI" (ionChange)="checkChanges()"></ion-input> -->
+        <ion-icon name="analytics" slot="end" color="light"></ion-icon>
+      </ion-item>
+    </ion-list>
+    
+    <ion-button *ngIf="changesMade" (click)="save()" expand="block"  shape="round">
+      Save
+    </ion-button>
+    <ion-button (click)="logout()" expand="block" color="danger" shape="round" class="ion-margin-top">
+      Logout
+    </ion-button>
+  </div>
+  
+
+ 
+</ion-content>

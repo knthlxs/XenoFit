@@ -1,0 +1,39 @@
+ion-content {
+    --ion-background-color: #3f3f3f;
+}
+ion-toolbar {
+    display: flex;
+    justify-content: space-between;
+    border-radius: 0px 0px 20px 20px;
+  }
+.flex {
+    display: flex;
+    width: 100%;
+}
+
+.justify-between {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.text-title {
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.img-instruction {
+    display: block;
+    height: 100px;
+    width: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+
+.mb-2 {
+    margin-bottom: 2rem;
+}
+
+ion-buttons {
+    // For profile icon
+    margin: 20px;
+}

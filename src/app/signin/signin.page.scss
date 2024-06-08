@@ -1,0 +1,47 @@
+.container {
+    background: url("/assets/images/auth-bg.jpg") no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 40px;
+}
+
+svg {
+    width: 35px;
+    height: 35px;
+}
+
+h1 {
+    font-weight: 700;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+#logo {
+    display: block;
+    margin: 0 auto;
+    width: 150px;
+}
+
+.form-container {
+    background: rgba(63, 63, 63, 0.9);
+    margin: 0 20px;
+    border-radius: 20px;
+    padding: 10px 10px 20px 10px;
+}
+
+.email-container,
+.password-container {
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+    margin: 10px;
+}
+
+.email-input,
+.password-input {
+    width: 100%;
+}
+

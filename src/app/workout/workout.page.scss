@@ -1,0 +1,206 @@
+ion-content {
+    --ion-background-color: #3f3f3f;
+}
+
+// ion-card {
+//     margin: 10px;
+//     border-radius: 20px;
+// }
+
+ion-row {
+    display: flex;
+    justify-content: space-between;
+    row-gap: 10px;
+}
+
+ion-col {
+    cursor: pointer;
+    background-color: #292929;
+    border-radius: 10px;
+    text-align: center;
+    padding: 10px 5px 20px 5px;
+}
+
+ion-toolbar {
+    border-radius: 0px 0px 20px 20px;
+}
+
+
+.back-btn,
+ion-buttons {
+    margin: 20px;
+}
+
+.ml-1 {
+    margin-left: 1rem;
+}
+
+.text-center {
+    text-align: center;
+}
+
+
+.overflow-none {
+    overflow: hidden;
+    white-space: nowrap; 
+    text-overflow: ellipsis; 
+  }
+  
+  .overflow-none h2 {
+    white-space: normal; 
+  }
+.flex {
+    display: flex;
+    width: 100%;
+}
+
+.remaining-time {
+    font-size: 28px;
+    padding: 10px;
+}
+.justify-between {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rest-btn {
+    margin-top: 20px;
+}
+
+.justify-center {
+    justify-content: center;
+    column-gap: 40px;
+}
+
+.gap-1 {
+    column-gap: 1rem;
+}
+
+.img-instruction {
+    width: 100%;
+    object-fit: cover;
+}
+
+.exercise-img {
+    width: 100px;
+    // height: 60px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.confirm-back-message {
+    text-align: center;
+    font-size: 36px;
+}
+
+.confirm-message-container {
+    margin: 50px 0;
+}
+.neverGiveUpImg {
+    width: 80%;
+    height: 70%;
+    object-fit: contain;
+    object-position: center;
+    margin: 40px auto;
+}
+.confirm-message-btn {
+    margin-bottom: 10px;
+}
+
+.info-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.streak-container {
+    border-radius: 20px;
+}
+.workout-card {
+    padding: 0;
+}
+
+.flex-end {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.workout-img {
+    height: 100px;
+    object-fit: cover;
+    object-position: center;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+a {
+    text-decoration: none;
+}
+
+ion-buttons:not(#avatar) {
+    width: 30px;
+    height: 30px;
+    margin:  0;
+}
+.flex-column {
+    flex-direction: column;
+    margin-top: 10px;
+    row-gap: 5px;
+}
+
+
+
+.reps-container,
+.sets-container, 
+.duration-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.reps-title,
+.sets-container {
+    font-size: 20px;
+    font: bold;
+}
+
+.reps-input
+{
+    // width: 30px;
+    // background-color: transparent;
+    color: white;
+    font-size: 24px;
+    text-align: center;
+    // margin-left: 10px;
+}
+.sets-input {
+    font-size: 24px;
+}
+
+.reps-container .right,
+.sets-container .right,
+.duration-container .right {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .center-button {
+    margin: 20px 0px 40px 0; 
+  }
+
+  .rest-title {
+    margin-top: 50px;
+  }
+
+  .next-exercise-img {
+    margin-top: 30px;
+  }

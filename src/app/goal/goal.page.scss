@@ -1,0 +1,204 @@
+ion-content {
+    --ion-background-color: #3f3f3f;
+}
+
+ion-card {
+    margin: 10px;
+    border-radius: 20px;
+}
+
+ion-row {
+    display: flex;
+    justify-content: space-between;
+    row-gap: 10px;
+}
+
+ion-col {
+    cursor: pointer;
+    background-color: #292929;
+    border-radius: 10px;
+    text-align: center;
+    padding: 10px 5px 20px 5px;
+}
+
+ion-toolbar {
+    border-radius: 0px 0px 20px 20px;
+}
+
+ion-title {
+    padding: 20px;
+}
+
+ion-buttons {
+    // For profile icon
+    margin: 20px;
+}
+
+ion-datetime {
+    width: 100%;
+}
+
+.times-per-week {
+    --background: #f0f0f0;
+    --color: #000;
+}
+
+ion-input {
+    background-color: #efefef;
+    color: #3f3f3f;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+form {
+    margin-top: 30px;
+}
+
+form ion-item {
+    display: flex;
+    align-items: center;
+}
+
+form ion-label {
+    padding: 10px 10px 20px 0px;
+}
+
+
+
+.flex {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+}
+
+.goal-week,
+.target-weight,
+.health-calculator {
+    margin-top: 20px;
+    border-radius: 20px;
+}
+
+// For workout frequency and calories burned
+.goal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 16px;
+}
+
+.goal-title {
+    margin: 0;
+    font-size: 1.5em;
+    /* Adjust as needed */
+}
+
+ion-button {
+    --padding-start: 0;
+    --padding-end: 0;
+}
+
+// For health calculator
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* Space between title and button */
+    width: 100%;
+}
+
+.title {
+    font-size: 1.5em;
+    /* Adjust as needed */
+    margin: 0;
+}
+
+.calculate-button {
+    font-size: 1.2em;
+    /* Adjust icon size as needed */
+    margin-left: 8px;
+    /* Space between the title and button */
+}
+
+
+.title {
+    font-size: 1.5em;
+    /* Adjust as needed */
+    margin: 0;
+}
+
+.calculate-button {
+    font-size: 1.2em;
+    /* Adjust icon size as needed */
+    margin-left: 8px;
+    /* Space between the title and button */
+}
+
+
+.pad-left {
+    padding-left: 10px;
+}
+
+.first-item {
+    border-radius: 20px 20px 0 0px;
+}
+
+.last-item {
+    border-radius: 0px 0px 20px 20px;
+
+}
+
+.health-calculator {
+    margin-bottom: 20px;
+    border-radius: 20px;
+}
+
+.goal-setting {
+    padding: 20px;
+    margin: auto;
+}
+
+ion-label {
+    padding-right: 20px;
+    width: 200px;
+}
+
+.text-capitalize {
+    text-transform: capitalize;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.days {
+    font-size: 28px;
+}
+
+.goal-title {
+    padding-left: 10px;
+}
+
+.goal-text, .goal-text-days {
+    padding: 10px;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+    color: black;
+    display: block;
+    text-align: center;
+    line-height: 30px;
+}
+
+.goal-text-days {
+  
+    width: 50px;
+    height: 50px;
+}
+.goal-text {
+    width: max-content;
+    height: max-content;
+}
+
+ion-datetime {
+    display: block;
+    margin: auto;
+}

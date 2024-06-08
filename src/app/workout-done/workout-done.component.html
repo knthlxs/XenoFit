@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Workout Done</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="cancel()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <ion-loading isOpen="isLoading" message="Loading..." [duration]="1000" spinner="circles"></ion-loading>
+  <ion-card *ngFor="let workoutHistory of specificWorkout; let i=index">
+    <ion-card-header class="workout-card" *ngIf="!isLoading">
+    </ion-card-header>
+    <ion-card-content *ngIf="!isLoading">
+      <!-- <h1>{{workoutHistory}}</h1> -->
+      <h1 class="text-title mb-2">{{ workoutHistory.workout[i].type }} workout</h1>
+
+
+      <div *ngFor="let workout of workoutHistory.workout; let j = index" class="mb-2">
+        <div class="flex justify-between">
+          <h2 class="warning">{{j+1}}. {{workout.exerciseName}}</h2>
+        </div>
+        <img src="{{workout.exerciseImage}}" alt="" class="workout-img" class="img-instruction">
+        <div class="">
+          <p  >Duration: <span class="warning">{{workoutHistory.exerciseTimes[j].duration.toFixed(0)}}s</span></p>
+          <p  *ngIf="workout.reps > 0">Reps Done: <span class="warning">{{workout.reps}}</span></p>
+          <p >Sets Done: <span class="warning">{{workout.sets}}</span></p>
+
+        </div>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

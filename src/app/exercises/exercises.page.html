@@ -1,0 +1,24 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>exercises</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">exercises</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <!-- EXERCISES -->
+  <ion-card *ngFor="let workout of workoutList">
+    <ion-card-header class="workout-card">
+      <img src="{{workout.imageUrl}}" alt="" class="workout-img">
+    </ion-card-header>
+    <ion-card-content>
+      <h1>{{workout.name}}</h1>
+      <ion-label>No. of Exercise: {{workout.exerciseCount}}</ion-label>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

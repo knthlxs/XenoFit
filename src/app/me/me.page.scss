@@ -1,0 +1,27 @@
+ion-content {
+  --ion-background-color: #3f3f3f;
+}
+
+
+.button-container {
+    display: flex;
+    justify-content: flex-end; /* Aligns children to the right */
+  }
+  
+  .back-button {
+    margin-left: auto; /* Pushes the button to the right */
+  }
+
+  ion-toolbar {
+    display: flex;
+    justify-content: space-between;
+    border-radius: 0px 0px 20px 20px;
+  }
+
+  ion-buttons {
+    // For profile icon
+    margin: 20px;
+}
+ion-input {
+  color: white;
+}

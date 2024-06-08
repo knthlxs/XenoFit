@@ -1,0 +1,150 @@
+<!-- <ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Sign Up</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content [fullscreen]="true">
+  <!-- <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Sign Up</ion-title>
+    </ion-toolbar>
+  </ion-header> -->
+  <div class="container">
+    <div class="logo-container">
+    <img src="/assets/images/logo.png" alt="Logo" class="logo">
+  </div> <div class="form-container">
+      <h1>Sign Up</h1>
+
+
+
+
+      <div *ngIf="!isSignUpModalOpenBool">
+        <div class="name-container">
+          <svg xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+            <path fill="#fafafa"
+              d="M0 96l576 0c0-35.3-28.7-64-64-64H64C28.7 32 0 60.7 0 96zm0 32V416c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V128H0zM64 405.3c0-29.5 23.9-53.3 53.3-53.3H234.7c29.5 0 53.3 23.9 53.3 53.3c0 5.9-4.8 10.7-10.7 10.7H74.7c-5.9 0-10.7-4.8-10.7-10.7zM176 192a64 64 0 1 1 0 128 64 64 0 1 1 0-128zm176 16c0-8.8 7.2-16 16-16H496c8.8 0 16 7.2 16 16s-7.2 16-16 16H368c-8.8 0-16-7.2-16-16zm0 64c0-8.8 7.2-16 16-16H496c8.8 0 16 7.2 16 16s-7.2 16-16 16H368c-8.8 0-16-7.2-16-16zm0 64c0-8.8 7.2-16 16-16H496c8.8 0 16 7.2 16 16s-7.2 16-16 16H368c-8.8 0-16-7.2-16-16z" />
+          </svg>
+          <div class="password-input">
+            <ion-label class="ion-margin-vertical">Name</ion-label>
+            <ion-input class="ion-padding  custom-input" type="text" required [(ngModel)]="name"
+              autocapitalize="word"></ion-input>
+          </div>
+        </div>
+
+        <div class="age-container">
+          <svg xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 384 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+            <path fill="#ffffff"
+              d="M384 64c0-35.3-28.7-64-64-64H64C28.7 0 0 28.7 0 64V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64l0-384zM128 192a64 64 0 1 1 128 0 64 64 0 1 1 -128 0zM80 356.6c0-37.9 30.7-68.6 68.6-68.6h86.9c37.9 0 68.6 30.7 68.6 68.6c0 15.1-12.3 27.4-27.4 27.4H107.4C92.3 384 80 371.7 80 356.6z" />
+          </svg>
+          <div class="password-input">
+            <ion-label class="ion-margin-vertical">Age</ion-label>
+            <ion-input class="ion-padding  custom-input" type="number" required [(ngModel)]="age"></ion-input>
+          </div>
+        </div>
+
+
+
+        <div class="weight-container">
+          <svg xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+            <path fill="#fafafa"
+              d="M128 176a128 128 0 1 1 256 0 128 128 0 1 1 -256 0zM391.8 64C359.5 24.9 310.7 0 256 0S152.5 24.9 120.2 64H64C28.7 64 0 92.7 0 128V448c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V128c0-35.3-28.7-64-64-64H391.8zM296 224c0-10.6-4.1-20.2-10.9-27.4l33.6-78.3c3.5-8.1-.3-17.5-8.4-21s-17.5 .3-21 8.4L255.7 184c-22 .1-39.7 18-39.7 40c0 22.1 17.9 40 40 40s40-17.9 40-40z" />
+          </svg>
+          <div class="password-input">
+            <ion-label class="ion-margin-vertical">Weight in kilograms</ion-label>
+            <ion-input class="ion-padding custom-input" type="number" required [(ngModel)]="weight"></ion-input>
+          </div>
+        </div>
+
+        <div class="height-container">
+          <svg xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 256 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+            <path fill="#ffffff"
+              d="M0 48C0 21.5 21.5 0 48 0H208c26.5 0 48 21.5 48 48V96H176c-8.8 0-16 7.2-16 16s7.2 16 16 16h80v64H176c-8.8 0-16 7.2-16 16s7.2 16 16 16h80v64H176c-8.8 0-16 7.2-16 16s7.2 16 16 16h80v64H176c-8.8 0-16 7.2-16 16s7.2 16 16 16h80v48c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V48z" />
+          </svg>
+          <div class="password-input">
+            <ion-label class="ion-margin-vertical">Height in centimeters</ion-label>
+            <ion-input class="ion-padding custom-input" type="number" required [(ngModel)]="height"></ion-input>
+          </div>
+        </div>
+
+        <div class="gender-container">
+          <svg xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 640 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+            <path fill="#ffffff"
+              d="M176 288a112 112 0 1 0 0-224 112 112 0 1 0 0 224zM352 176c0 86.3-62.1 158.1-144 173.1V384h32c17.7 0 32 14.3 32 32s-14.3 32-32 32H208v32c0 17.7-14.3 32-32 32s-32-14.3-32-32V448H112c-17.7 0-32-14.3-32-32s14.3-32 32-32h32V349.1C62.1 334.1 0 262.3 0 176C0 78.8 78.8 0 176 0s176 78.8 176 176zM271.9 360.6c19.3-10.1 36.9-23.1 52.1-38.4c20 18.5 46.7 29.8 76.1 29.8c61.9 0 112-50.1 112-112s-50.1-112-112-112c-7.2 0-14.3 .7-21.1 2c-4.9-21.5-13-41.7-24-60.2C369.3 66 384.4 64 400 64c37 0 71.4 11.4 99.8 31l20.6-20.6L487 41c-6.9-6.9-8.9-17.2-5.2-26.2S494.3 0 504 0H616c13.3 0 24 10.7 24 24V136c0 9.7-5.8 18.5-14.8 22.2s-19.3 1.7-26.2-5.2l-33.4-33.4L545 140.2c19.5 28.4 31 62.7 31 99.8c0 97.2-78.8 176-176 176c-50.5 0-96-21.3-128.1-55.4z" />
+          </svg>
+          <div class="password-input">
+            <ion-label>Gender</ion-label>
+            <ion-select [(ngModel)]="gender" required placeholder="Choose...">
+              <ion-select-option value="Male">Male</ion-select-option>
+              <ion-select-option value="Female">Female</ion-select-option>
+            </ion-select>
+          </div>
+        </div>
+
+
+        <ion-button (click)=" next()" shape="round" expand="block" color="primary" class="ion-margin-top">
+          Next
+        </ion-button>
+        <ion-button (click)="backToLogin()" shape="round" expand="block" fill="clear" color="light"
+          class="ion-margin-top">
+          Back
+        </ion-button>
+      </div>
+      <div *ngIf="isSignUpModalOpenBool">
+        <div class="email-container">
+          <svg xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+            <path fill="#fafafa"
+              d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z" />
+          </svg>
+          <div class="email-input">
+            <ion-label class="ion-margin-top">Email</ion-label>
+            <ion-input class="ion-padding custom-input" type="email" required [(ngModel)]="email"></ion-input>
+          </div>
+        </div>
+
+        <div class="password-container">
+          <svg xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+            <path fill="#fafafa"
+              d="M336 352c97.2 0 176-78.8 176-176S433.2 0 336 0S160 78.8 160 176c0 18.7 2.9 36.8 8.3 53.7L7 391c-4.5 4.5-7 10.6-7 17v80c0 13.3 10.7 24 24 24h80c13.3 0 24-10.7 24-24V448h40c13.3 0 24-10.7 24-24V384h40c6.4 0 12.5-2.5 17-7l33.3-33.3c16.9 5.4 35 8.3 53.7 8.3zM376 96a40 40 0 1 1 0 80 40 40 0 1 1 0-80z" />
+          </svg>
+          <div class="password-input">
+            <ion-label class="ion-margin-top">Password</ion-label>
+            <ion-input class="ion-padding custom-input" type="password" required [(ngModel)]="password" color="light">
+              <ion-input-password-toggle slot="end" color="dark"></ion-input-password-toggle>
+            </ion-input>
+          </div>
+        </div>
+
+        <div class="password-container">
+          <svg xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+            <path fill="#fafafa"
+              d="M336 352c97.2 0 176-78.8 176-176S433.2 0 336 0S160 78.8 160 176c0 18.7 2.9 36.8 8.3 53.7L7 391c-4.5 4.5-7 10.6-7 17v80c0 13.3 10.7 24 24 24h80c13.3 0 24-10.7 24-24V448h40c13.3 0 24-10.7 24-24V384h40c6.4 0 12.5-2.5 17-7l33.3-33.3c16.9 5.4 35 8.3 53.7 8.3zM376 96a40 40 0 1 1 0 80 40 40 0 1 1 0-80z" />
+          </svg>
+          <div class="password-input">
+            <ion-label class="ion-margin-top">Re-enter Password</ion-label>
+            <ion-input class="ion-padding custom-input" type="password" required [(ngModel)]="reEnterPassword"
+              color="light">
+              <ion-input-password-toggle slot="end" color="dark"></ion-input-password-toggle></ion-input>
+          </div>
+        </div>
+
+        <ion-button (click)=" signup()" shape="round" expand="block" color="primary" class="ion-margin-top">
+          Sign Up
+        </ion-button>
+        <ion-button (click)="back()" shape="round" expand="block" fill="clear" color="light" class="ion-margin-top">
+          Back
+        </ion-button>
+      </div>
+
+
+    </div>
+  </div>
+</ion-content>
